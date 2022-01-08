@@ -2,229 +2,153 @@
 <html lang="en">
 
 <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <title>Dashboard <?= session()->get('role'); ?> | <?= session()->get('username'); ?></title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <!-- Favicons -->
+  <link href="<?php echo base_url('backend_assets/img/logo.svg'); ?>" rel="icon">
 
-    <title>BUMDES | <?= session()->get('role'); ?></title>
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-    <!-- Custom fonts for this template-->
-    <link href="<?= base_url('assets/vendor/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="<?php echo base_url('backend_assets/vendor/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
+  <link href="<?php echo base_url('backend_assets/vendor/bootstrap-icons/bootstrap-icons.css'); ?>" rel="stylesheet">
+  <link href="<?php echo base_url('backend_assets/vendor/boxicons/css/boxicons.min.css'); ?>" rel="stylesheet">
+  <link href="<?php echo base_url('backend_assets/vendor/quill/quill.snow.css'); ?>" rel="stylesheet">
+  <link href="<?php echo base_url('backend_assets/vendor/quill/quill.bubble.css'); ?>" rel="stylesheet">
+  <link href="<?php echo base_url('backend_assets/vendor/remixicon/remixicon.css'); ?>" rel="stylesheet">
+  <link href="<?php echo base_url('backend_assets/vendor/simple-datatables/style.css'); ?>" rel="stylesheet">
 
-    <!-- Custom styles for this template-->
-    <link href="<?= base_url('assets/css/sb-admin-2.min.css'); ?>" rel="stylesheet">
-    <link href="<?= base_url('assets/vendor/datatables/dataTables.bootstrap4.min.css'); ?>" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="<?php echo base_url('backend_assets/css/style.css'); ?>" rel="stylesheet">
+  <script src="https://js.pusher.com/beams/1.0/push-notifications-cdn.js"></script>
 </head>
 
-<body id="page-top">
+<body>
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="<?= base_url(); ?>/superadmin" class="logo d-flex align-items-center">
+        <img src="<?= base_url('backend_assets/img/logo.svg'); ?>" alt="">
+        <span class="d-none d-lg-block">Dashboard</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('superadmin'); ?>">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">BUMDES</div>
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">         
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="<?php echo base_url('backend_assets/img/user.png'); ?>" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2"><?= session()->get('username'); ?></span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6><?= session()->get('role'); ?></h6>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="<?= base_url(); ?>/superadmin/profile">
+                <i class="bi bi-person"></i>
+                <span>Profil Saya</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="<?= base_url(); ?>/help">
+                <i class="bi bi-question-circle"></i>
+                <span>Butuh Bantuan?</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="<?= base_url('logout'); ?>">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Keluar</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link" href="<?= base_url(); ?>/superadmin">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Tools</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="<?= base_url('superadmin/surat'); ?>">
+              <i class="bi bi-circle"></i><span>Data Surat</span>
             </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="<?= base_url('superadmin'); ?>">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Main</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="">Laporan</a>
-                        <a class="collapse-item" href="">Modal</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Alat</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= base_url('superadmin/user'); ?>">Master User</a>
-                        <a class="collapse-item" href="#">Master Permohonan</a>
-                        <a class="collapse-item" href="#">Master Simpanan</a>
-                        <a class="collapse-item" href="#">Master Pinjaman</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-            <!-- Sidebar Message -->
-
+          </li>
+          <li>
+            <a href="<?= base_url('superadmin/user'); ?>">
+              <i class="bi bi-circle"></i><span>Data User</span>
+            </a>
+          </li>
         </ul>
-        <!-- End of Sidebar -->
+      </li><!-- End Components Nav -->
+    </ul>
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+  </aside><!-- End Sidebar-->
 
-            <!-- Main Content -->
-            <div id="content">
+  <main id="main" class="main">
 
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+    <?= $this->renderSection('content') ?>
 
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
+  </main><!-- End #main -->
 
-                        <div class="topbar-divider d-none d-sm-block"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= session()->get('nama'); ?></span>
-                                <img class="img-profile rounded-circle"
-                                    src="<?= base_url('assets/img/user.png'); ?>">
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="<?= base_url('superadmin/profile'); ?>">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<?= base_url('logout'); ?>" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
+  <!-- Vendor JS Files -->
+  <script src="<?= base_url('backend_assets/vendor/apexcharts/apexcharts.min.js'); ?>"></script>
+  <script src="<?= base_url('backend_assets/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+  <script src="<?= base_url('backend_assets/vendor/chart.js/chart.min.js'); ?>"></script>
+  <script src="<?= base_url('backend_assets/vendor/echarts/echarts.min.js'); ?>"></script>
+  <script src="<?= base_url('backend_assets/vendor/quill/quill.min.js'); ?>"></script>
+  <script src="<?= base_url('backend_assets/vendor/simple-datatables/simple-datatables.js'); ?>"></script>
+  <script src="<?= base_url('backend_assets/vendor/tinymce/tinymce.min.js'); ?>"></script>
+  <script src="<?= base_url('backend_assets/vendor/php-email-form/validate.js'); ?>"></script>
 
-                    </ul>
-
-                </nav>
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-                    <?= $this->renderSection('content') ?>
-                </div>
-
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; BUMDES</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="<?= base_url('logout'); ?>">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="<?= base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
-    <script src="<?= base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="<?= base_url('assets/vendor/jquery-easing/jquery.easing.min.js'); ?>"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="<?= base_url('assets/js/sb-admin-2.min.js'); ?>"></script>
-
-    <!-- Page level plugins -->
-    <script src="<?= base_url('assets/vendor/chart.js/Chart.min.js'); ?>"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="<?= base_url('assets/js/demo/chart-area-demo.js'); ?>"></script>
-    <script src="<?= base_url('assets/js/demo/chart-pie-demo.js'); ?>"></script>
-
-    <!-- Page level plugins -->
-    <script src="<?= base_url('assets/vendor/datatables/jquery.dataTables.min.js'); ?>"></script>
-    <script src="<?= base_url('assets/vendor/datatables/dataTables.bootstrap4.min.js'); ?>"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="<?= base_url('assets/js/demo/datatables-demo.js'); ?>"></script>
-
+  <!-- Template Main JS File -->
+  <script src="<?= base_url('backend_assets/js/main.js'); ?>"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+  <script>
+      $(document).ready( function () {
+        $('#users-list').DataTable();
+    } );
+  </script>
 </body>
 
 </html>

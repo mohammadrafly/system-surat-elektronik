@@ -1,0 +1,18 @@
+-------------------------------------------------
+username: superadmin
+password: superadmin
+-------------------------------------------------
+
+-------------------------------------------------
+ANALIS NASKAH KERJA SAMA & ANALIS SURAT KERJASAMA
+username: nkuser
+password: nk123321
+
+username: skuser
+password: sk123321
+-------------------------------------------------
+
+-------------------------------------------------
+USER/PENGGUNA
+username: pengguna
+password: p12344321

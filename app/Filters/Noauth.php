@@ -28,6 +28,7 @@ class Noauth implements FilterInterface
 				return redirect()->to(base_url('analis/nk'));
 			}
         }
+
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)

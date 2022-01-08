@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="<?php echo base_url('backend_assets/img/favicon2.png'); ?>" rel="icon">
+  <link href="<?php echo base_url('backend_assets/img/logo.svg'); ?>" rel="icon">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
   <!-- Google Fonts -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -37,7 +37,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="<?= base_url(); ?>/analis/nk" class="logo d-flex align-items-center">
-        <img src="<?= base_url('backend_assets/img/favicon2.png'); ?>" alt="">
+        <img src="<?= base_url('backend_assets/img/logo.svg'); ?>" alt="">
         <span class="d-none d-lg-block">Dashboard</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>

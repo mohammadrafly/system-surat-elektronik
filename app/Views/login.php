@@ -14,7 +14,7 @@
                   <div class="pt-4 pb-2">
                     <div class="d-flex justify-content-center py-4">
                         <a href="#" class="d-flex align-items-center w-auto">
-                            <img src="<?php echo base_url('assets/img/user.png'); ?>" alt="" width="100px">
+                            <img src="<?php echo base_url('backend_assets/img/logo.svg'); ?>" alt="" width="100px">
                         </a>
                     </div><!-- End Logo -->
                     <h5 class="card-title text-center pb-0 fs-4">Masuk ke akun Anda</h5>
@@ -36,8 +36,8 @@
                       <label for="password" class="form-label">Kata Sandi</label>
                       <input type="password" name="password" class="form-control" id="password" required>
                     </div>
-                     
-                    <div class="col-12 mt-3">
+
+                    <div class="col-12">
                       <button class="btn btn-primary w-100" type="submit">Masuk</button>
                     </div>
                   </form>

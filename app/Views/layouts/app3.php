@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="<?php echo base_url('backend_assets/img/favicon2.png'); ?>" rel="icon">
+  <link href="<?php echo base_url('backend_assets/img/logo.svg'); ?>" rel="icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -36,7 +36,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="<?= base_url(); ?>/admin" class="logo d-flex align-items-center">
-        <img src="<?= base_url('backend_assets/img/favicon2.png'); ?>" alt="">
+        <img src="<?= base_url('backend_assets/img/logo.svg'); ?>" alt="">
         <span class="d-none d-lg-block">Dashboard</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
