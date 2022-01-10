@@ -19,11 +19,13 @@ class RegularUserController extends BaseController
     {
         $this->modelsurat = new SuratModel;
         $this->modeluser = new UserModel;
-        $data = $this->modelsurat->where('updated_at', 'DESC')->getSurat()->getResult();
+        $data = $this->modelsurat->where('updated_at', 'DESC')->getSuratByID()->getResult();
         $data = array(
             'id_surat' => $this->modelsurat->allSurat(),
             'id' => $this->modeluser->allUser(),
-            'content' => $data
+            'content' => $data,
+            'suratByID' => $this->modelsurat->getSuratByID()->getResult(),
+            'title' => 'Dashboard'
             );
         return view("user/dashboard", $data);
     }

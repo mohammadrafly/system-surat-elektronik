@@ -66,4 +66,17 @@ class SuratModel extends Model
         $query = $builder->countAll();
         return $query;
     }
+
+    public function getSuratByID()
+    {
+        $query = $this->db->table('surat')
+            ->join('users', 'users.id = surat.id_user')
+            ->join('status_surat', 'status_surat.id_status = surat.id_status')
+            ->join('kategori_surat', 'kategori_surat.id_kategori = surat.id_kategori')
+            ->join('status_kerjasama', 'status_kerjasama.id_status_kerjasama = surat.id_status_kerjasama')
+            ->join('draft_naskah_kerjasama', 'draft_naskah_kerjasama.id_dnk = surat.id_dnk')
+            ->where(['id_user'=>session()->get('id')])
+            ->get();
+        return $query;
+    }
 }

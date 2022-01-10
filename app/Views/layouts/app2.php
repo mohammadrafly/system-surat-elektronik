@@ -131,6 +131,15 @@
   <!-- Template Main JS File -->
   <script src="<?= base_url('backend_assets/js/main.js'); ?>"></script>
 
+  <script>
+      $(document).ready( function () {
+        $('#users-list').DataTable( {
+        "scrollX": true
+        }
+        );
+    } );
+  </script>
+
 </body>
 
 </html>
